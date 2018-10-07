@@ -5,20 +5,12 @@
     <title>Домашняя страница - Унылый бложек</title>
 </head>
 <body>
-<div>
-    <h1><a href="/">Django Blog</a></h1>
-</div>
-
-<div>
-    <p>published: 06.10.2018, 18:13</p>
-    <h2><a href="">первый пост</a></h2>
-    <p>тра та та...текст первого поста</p>
-</div>
-
-<div>
-    <p>published: 06.10.2018, 18:14</p>
-    <h2><a href="">Пост №2</a></h2>
-    <p>тра та та...текст поста №2</p>
-</div>
+{% for post in posts %}
+    <div>
+        <h1><a href="">{{ post.title }}</a></h1>
+        <p>{{ post.text|linebreaksbr }}</p>
+        <p>Опубликовано: {{ post.published_date }}</p>
+    </div>
+{% endfor %}
 </body>
 </html>
